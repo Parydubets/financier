@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+    <body >
+
+        <div class="logoBar">
+            <div><img class="Logo" src="./static/Name1.png"></div>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="./static/Logo.png" alt="">
+                        <span class="nav-item">Financier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Budgets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Operations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="navbar">
+            <div></div>
+            <a href="#"><i class="fa-sharp fa-solid fa-house"></i><br>Home</a>
+            <a href="#"><i class="fas fa-chart-bar"></i><br>Operations</a>
+            <a href="#" class="new" id="new"><i class="fa-solid fa-plus"></i>New</a>
+            <a href="#"><i class="fas fa-wallet"></i><br>Budgets</a>
+            <a href="#"><i class="fa-solid fa-user"></i><br>Account</a>
+            <div></div>
+        </div>
+
+            <div style="min-height: 30px;"></div>
+
+    </body>
+{% endblock %}

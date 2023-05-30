@@ -1,0 +1,292 @@
+@font-face {
+  font-family: AvenirRegular;
+  src: url(AvenirRegular.otf);
+}
+html, body{
+    min-width: 100%;
+    min-height: 97vh;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "AvenirRegular", sans-serif;
+}
+h1.Management{
+    display: flex;
+    font-family: 'AvenirRegular', 'Arial', sans-serif;
+    font-size: 56px;
+    color: #c9c7c7;
+}
+
+.modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(254, 126, 126, 0.7);
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+}
+.content {
+    position: absolute;
+    background: white;
+    width: 400px;
+    padding: 1em 2em;
+    border-radius: 15px;
+}
+.content b{
+    display: flex;
+    justify-content: center;
+}
+.content b a{
+    background: #060520;
+    color: #D1C44E;
+    padding: 2vh;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+.box-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #fe0606;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+@media all and (min-device-width:451px) {
+
+
+    body{
+        background: #dfe9f5;
+    }
+    .logoBar{
+        display: none;
+    }
+    body.bg {
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background: white url("./DesktopBackground.png") center center no-repeat;
+        margin: 0;
+    }
+
+    #home1{
+        min-height: 97vh;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .slogan {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1vh;
+        padding-top: 2vh;
+        min-width: 70%;
+    }
+    .start{
+        min-width: 25%;
+        font-size: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-left: 15px;
+    }
+    .navbar{
+        display: none;
+    }
+    ul li a{
+        text-decoration: none;
+    }
+    nav{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      background: #fff;
+      width: 70px;
+      overflow: hidden;
+      transition: width 0.2s linear;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+    ul{
+        list-style-type: armenian;
+        padding-inline-start: 0;
+    }
+    li a{
+      position: relative;
+      color: #060520;
+      font-size: 14px;
+      display: table;
+      width: 175px;
+      padding: 5px;
+    }
+    .fas{
+      position: relative;
+      width: 65px;
+      height: 40px;
+      top: 14px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .nav-item{
+      position: relative;
+      top: 14px;
+    }
+    li a:hover{
+      background: #eee;
+
+    }
+    nav:hover{
+      width: 175px;
+      transition: all 0.5s ease;
+    }
+    .logout{
+      position: absolute;
+      bottom: 0;
+    }
+    .logo{
+      text-align: center;
+      display: flex;
+      transition: all 0.5s ease;
+      margin: 20px 0 0 10px;
+    }
+    .logo img{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .logo span{
+      font-weight: bold;
+      padding-left: 15px;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+}
+
+@media all and (min-device-width:300px) and (max-device-width: 450px) {
+
+    .content{
+        font-size: 24px;
+        width: 500px;
+    }
+    .box-close {
+        font-size: 60px;
+    }
+    .content b a{font-size: 32px; border-radius: 20px}
+    nav{
+        display: none;
+    }
+    body{
+        background: #dfe9f5;
+    }
+    body.bg {
+        background-size: cover;
+        min-height: 100vh;
+        background: white url("./home.png") center center no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    }
+
+    #home{
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+    #home1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .start{
+        font-size: 128px;
+        display: flex;
+        flex: 1;
+        align-items: center;
+    }
+
+    .slogan{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 3;
+        align-items: center;
+    }
+
+    .logoBar{
+        display: flex;
+        justify-content: right;
+        background: #060520;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        max-height: 7vh;
+    }
+    img.Logo{
+        display: flex;
+        max-height: 7vh;
+        object-fit: contain;
+    }
+
+    .Logo{
+        display: none;
+    }
+
+    .navbar {
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        display: flex ;
+        justify-content: space-between;
+        overflow: hidden;
+        background-color: #fff;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 7vh;
+        align-items: center;
+    }
+    .navbar a {
+        color: #060520;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 36px;
+    }
+    .navbar a:hover {
+        background: #D1C44E;
+        color: black;
+        border-radius: 20px;
+    }
+    .new{
+        height: 5vh;
+        width: 5vh;
+        flex: inherit;
+        background-color: #060520;
+        border-radius: 50%;
+    }
+    .new i{
+        color: #fff;
+        font-size: 56px;
+        display: flex;
+        justify-content: center;
+    }
+    .new a i{
+        color: #fff;
+    }
+    #new {
+        color: #fff;
+    }
+}
