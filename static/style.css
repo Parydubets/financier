@@ -2,6 +2,144 @@
   font-family: AvenirRegular;
   src: url(AvenirRegular.otf);
 }
+
+/*
+.select
+  position: relative
+  min-width: 200px
+
+  svg
+    position: absolute
+    right: 12px
+    top: calc(50% - 3px)
+    width: 10px
+    height: 6px
+    stroke-width: 2px
+    stroke: #9098A9
+    fill: none
+    stroke-linecap: round
+    stroke-linejoin: round
+    pointer-events: none
+
+  select
+    -webkit-appearance: none
+    padding: 7px 40px 7px 12px
+    width: 100%
+    border: 1px solid #E8EAED
+    border-radius: 5px
+    background: white
+    box-shadow: 0 1px 3px -2px #9098A9
+    cursor: pointer
+    font-family: inherit
+    font-size: 16px
+    transition: all 150ms ease
+    &:required:invalid
+      color: #5A667F
+
+    option
+      color: #223254
+      &[value=""][disabled]
+          display: none
+
+    &:focus
+      outline: none
+      border-color: #0077FF
+      box-shadow: 0 0 0 2px rgba(#0077FF,.2)
+
+    &:hover + svg
+      stroke: #0077FF
+
+.sprites
+  position: absolute
+  width: 0
+  height: 0
+  pointer-events: none
+  user-select: none
+*/
+
+.main-block{
+    margin-left: 80px;
+    margin-top: 20px;
+    margin-right: 10px;
+    left:80px;
+    top: 10px;
+}
+.secondary-block{
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    -webkit-box-shadow: 10px 10px 51px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 51px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 51px 0px rgba(0,0,0,0.75);
+    object-fit: contain;
+    margin: 2%;
+}
+.pie-chart{
+    display: flex;
+    width: 30%;
+    height: 50%;
+    z-index: 1;
+    object-fit: inherit;
+}
+.chart-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.chart-details h3{
+    display: flex;
+    min-width: 50%;
+    align-items: center;
+    margin: 5%;
+}
+.chart-details h3{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.wallets{
+    margin: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.wallet{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.transactions{
+    width: 30vw;
+    height: 30vh;
+}
+.data-boxes{ display: flex; justify-content: space-around;}
+.content span{text-align: center}
+.data-box{
+    padding: 2%;
+    border-radius: 10px;
+    border: 2px #8e8d9d solid;
+    min-width: 0;
+    min-height: 0;
+    max-height: 60px;
+    max-width: 100px;
+    transition: all 0.4s;
+}
+.data-box:hover{border: 2px #060520 solid;}
+.form-control, .edit-form{
+    font-size: 24px;
+    min-height: 0;
+    min-width: 0;
+    color: #D1C44E;
+    border-radius: 10px;
+    padding: 2%;
+}
+select{
+    cursor: pointer;
+}
+select#category.form-control{
+    display: flex;
+    max-width: 90%;
+}
 html, body{
     min-width: 100%;
     min-height: 97vh;
@@ -10,12 +148,14 @@ html, body{
     box-sizing: border-box;
     font-family: "AvenirRegular", sans-serif;
 }
-h1.Management{
-    display: flex;
-    font-family: 'AvenirRegular', 'Arial', sans-serif;
-    font-size: 56px;
-    color: #c9c7c7;
-}
+h2.Management{
+        display: flex;
+        font-family: 'AvenirRegular', 'Arial', sans-serif;
+        font-size: 56px;
+        color: #c9c7c7;
+        justify-content: center;
+    }
+
 
 .modal {
     align-items: center;
@@ -41,6 +181,7 @@ h1.Management{
 .content b{
     display: flex;
     justify-content: center;
+    z-index: 10;
 }
 .content b a{
     background: #060520;
@@ -62,6 +203,67 @@ h1.Management{
     font-size: 30px;
 }
 
+#new-operation-popup.modal{
+    background: rgba(6, 5, 32, 0.92);
+    z-index: 3;
+}
+#wallet-popup.modal{
+    background: rgba(6, 5, 32, 0.92);
+    z-index: 5;
+}
+.popup {
+  display: none;
+  position: center;
+  padding: 10px;
+  background: #FFF;
+  z-index: 20;
+
+}
+
+#popup1 {
+  -webkit-box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.9);
+}
+
+#popup2:after {
+  position: center;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: -2;
+}
+
+#popup2:before {
+  position: center;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
+/* From here on, just aesthetics */
+.account.secondary-block{
+    max-width: 60vw;
+}
+
+.popup a,
+.popup a:visited {
+  color: #1abc9c;
+}
+
+p {
+	margin: 1em 0;
+}
+
+p+p+p {
+	font-size: 60%;
+}
 @media all and (min-device-width:451px) {
 
 
@@ -71,14 +273,6 @@ h1.Management{
     .logoBar{
         display: none;
     }
-    body.bg {
-        background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background: white url("./DesktopBackground.png") center center no-repeat;
-        margin: 0;
-    }
 
     #home1{
         min-height: 97vh;
@@ -86,23 +280,21 @@ h1.Management{
         justify-content: space-between;
     }
 
-    .slogan {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1vh;
-        padding-top: 2vh;
-        min-width: 70%;
+   .slogan{
+        left: 0;
+        right: 0;
+        margin-top: 60%;
+        margin-left: 40%;
+        min-width: 30vw;
+        min-height: 30vh;
+        max-width: 40%;
+        color: #fff;
     }
     .start{
         min-width: 25%;
-        font-size: 72px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        margin-left: 15px;
+        margin-top: 30%;
+        max-height: 40vh;
+        font-size: 124px;
     }
     .navbar{
         display: none;
@@ -112,6 +304,7 @@ h1.Management{
     }
     nav{
       position: absolute;
+        z-index: 2;
       top: 0;
       bottom: 0;
       height: 100%;
@@ -145,6 +338,7 @@ h1.Management{
     .nav-item{
       position: relative;
       top: 14px;
+
     }
     li a:hover{
       background: #eee;
@@ -154,15 +348,34 @@ h1.Management{
       width: 175px;
       transition: all 0.5s ease;
     }
+    .new-operation{
+        font-size: 18px;
+        color: #D1C44E;
+    }
     .logout{
       position: absolute;
       bottom: 0;
     }
-    .logo{
-      text-align: center;
-      display: flex;
-      transition: all 0.5s ease;
-      margin: 20px 0 0 10px;
+.Logo{
+        display: flex;
+        font-family: 'AvenirRegular', 'Arial', sans-serif;
+        font-size: 64px;
+        color: #c9c7c7;
+        border: 8px solid #D1C44E;
+        border-radius: 90px;
+        justify-content: center;
+    z-index: 1;
+    }
+ .Logo h1{
+        max-width: 80%;
+        justify-content: center;
+    }
+    .Logo-horizontal{
+        min-width: 110%;
+        max-height: 50%;
+        background: #060520;
+        display: flex;
+        justify-content: center;
     }
     .logo img{
       width: 40px;
@@ -174,6 +387,31 @@ h1.Management{
       padding-left: 15px;
       font-size: 18px;
       text-transform: uppercase;
+    }
+    .left_circle{
+        position: fixed;
+        z-index: -10;
+        margin-left: -40%;
+        margin-top: -60%;
+        left: 0;
+        top: 0;
+        min-width: 120vw;
+        min-height: 120vw;
+        border-radius: 50%;
+        background: #060520;
+    }
+    .right_circle{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        bottom: 0;
+        right: 0;
+        margin-right: -10%;
+        margin-bottom: -10%;
+        min-width: 30vw;
+        min-height: 30vw;
+        border-radius: 50%;
+        background: #D1C44E;
     }
 }
 
@@ -193,13 +431,26 @@ h1.Management{
     body{
         background: #dfe9f5;
     }
-    body.bg {
-        background-size: cover;
-        min-height: 100vh;
-        background: white url("./home.png") center center no-repeat;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+    .left_circle{
+        position: fixed;
+        z-index: -10;
+        margin-top: -30%;
+        top: 0;
+        min-width: 180vw;
+        min-height: 190vw;
+        border-radius: 50%;
+        background: #060520;
+    }
+    .right_circle{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        bottom: 0;
+        margin-bottom: -40%;
+        min-width: 105vw;
+        min-height: 90vw;
+        border-radius: 50%;
+        background: #D1C44E;
     }
 
     #home{
@@ -212,19 +463,23 @@ h1.Management{
         flex-direction: column;
         align-items: center;
     }
-    .start{
-        font-size: 128px;
-        display: flex;
-        flex: 1;
-        align-items: center;
+   .slogan{
+        left: 0;
+        right: 0;
+        margin-top: 40%;
+        margin-left: 30%;
+        min-width: 30vw;
+        min-height: 30vh;
+        max-width: 40%;
+        color: #fff;
     }
-
-    .slogan{
+    .start{
+        min-width: 25%;
+        margin-top: 25%;
+        max-height: 40vh;
+        font-size: 148px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        flex: 3;
-        align-items: center;
     }
 
     .logoBar{
@@ -235,14 +490,26 @@ h1.Management{
         border-bottom-right-radius: 30px;
         max-height: 7vh;
     }
-    img.Logo{
+.Logo{
         display: flex;
-        max-height: 7vh;
-        object-fit: contain;
+        font-family: 'AvenirRegular', 'Arial', sans-serif;
+        font-size: 64px;
+        color: #c9c7c7;
+        border: 8px solid #D1C44E;
+        border-radius: 90px;
+        justify-content: center;
+    z-index: 1;
     }
-
-    .Logo{
-        display: none;
+ .Logo h1{
+        max-width: 80%;
+        justify-content: center;
+    }
+    .Logo-horizontal{
+        min-width: 110%;
+        max-height: 50%;
+        background: #060520;
+        display: flex;
+        justify-content: center;
     }
 
     .navbar {

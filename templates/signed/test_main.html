@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+<body>
+
+    <div id="popup-box" class="modal">
+        <div class="content">
+            <h1 style="color: #060520;">
+                Login or create account with google
+            </h1>
+            <b>
+                <a href="{{ url_for('google') }}">Login</a>
+            </b>
+            <a href="#"
+               class="box-close">
+                ×
+            </a>
+        </div>
+    </div>
+<div class="left_circle">
+
+</div>
+    <div class="slogan">
+         <div class="Logo" >
+             <div class="Logo-horizontal"> <h1>Financier</h1></div></div>
+
+            <h2 class="Management">Manage your finance easily</h2>
+            <div style="min-height: 90px;"></div>
+    </div>
+<div class="right_circle">
+    <div class="start">
+            <a href="#popup-box"><i class="fa-solid fa-circle-chevron-right" style="color: #060520;">halo</i></a>
+                </div>
+</div>
+
+
+<style>
+    html{
+        background: #D9D9D9;
+    }
+    .left_circle{
+        position: static;
+        margin-left: -40%;
+        margin-top: -60%;
+        left: 0;
+        top: 0;
+        min-width: 120vw;
+        min-height: 120vw;
+        border-radius: 50%;
+        background: #060520;
+    }
+    .right_circle{
+        position: static;
+        bottom: 0;
+        right: 0;
+        margin-right: -10%;
+        margin-bottom: -10%;
+        min-width: 30vw;
+        min-height: 30vw;
+        border-radius: 50%;
+        background: #D1C44E;
+    }
+    .slogan{
+        position: static;
+        left: 0;
+        right: 0;
+        margin: 7%;
+        min-width: 30vw;
+        min-height: 30vh;
+        max-width: 40%;
+        color: #fff;
+    }
+    h2.Management{
+        display: flex;
+        font-family: 'AvenirRegular', 'Arial', sans-serif;
+        font-size: 56px;
+        color: #c9c7c7;
+        justify-content: center;
+    }
+    .Logo{
+        display: flex;
+        font-family: 'AvenirRegular', 'Arial', sans-serif;
+        font-size: 64px;
+        color: #c9c7c7;
+        border: 8px solid #D1C44E;
+        border-radius: 90px;
+        justify-content: center;
+    }
+    .Logo h1{
+        max-width: 80%;
+        justify-content: center;
+    }
+    .Logo-horizontal{
+        min-width: 110%;
+        max-height: 50%;
+        background: #060520;
+        display: flex;
+        justify-content: center;
+    }
+    div.start{
+        position: absolute;
+        min-height: 100vh;
+        min-width: 100vw;
+        font-size: 72px;
+        align-items: center;
+        margin-left: 15px;
+    }
+    .modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(254, 126, 126, 0.7);
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+}
+    .content {
+    position: absolute;
+    background: white;
+    width: 400px;
+    padding: 1em 2em;
+    border-radius: 15px;
+}
+    .modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+.box-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #fe0606;
+    text-decoration: none;
+    font-size: 30px;
+}
+.popup {
+  display: none;
+  position: center;
+  padding: 10px;
+  background: #FFF;
+  z-index: 20;
+
+}
+</style>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layoutt.html" %}
+{% block content %}
+<style>
+.qr{
+    display: flex;
+    position: static;
+    z-index: 100;
+    min-height: 100vh;
+    background: #fff;
+}
+.l-navbar{
+    display: none;
+}
+.header{
+    display: none;
+}
+img{
+    width: 384px;
+    height: 384px;
+
+}
+</style>
+    <div class="qr">
+        <img src="../static/mono-login.png"/>
+        <h2>To continue scan QR-code above and approve it in your monobank app</h2>
+    </div>
+
+{% endblock %}
