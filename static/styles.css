@@ -1,3 +1,8 @@
+@font-face {
+  font-family: AvenirRegular;
+  src: url(AvenirRegular.otf);
+}
+
 ::-webkit-scrollbar {
         width: 8px;
     }
@@ -18,9 +23,9 @@
     :root{
         --header-height: 3rem;
         --nav-width: 68px;
-        --first-color: #4723D9;
-        --first-color-light: #AFA5D9;
-        --white-color: #F7F6FB;
+        --first-color: #060520;
+        --first-color-light: #F7F6FB;
+        --white-color: #D1C44E;
         --body-font: 'Nunito', sans-serif;
         --normal-font-size: 1rem;--z-fixed: 100
     }
@@ -30,7 +35,6 @@
     body{
         position: relative;
         margin: var(--header-height) 0 0 0;
-        padding: 0 1rem;
         font-family: var(--body-font);
         font-size: var(--normal-font-size);
         transition: .5s
@@ -46,7 +50,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 1rem;
-        background-color: var(--white-color);
+        background-color: var(--first-color-light);
         z-index: var(--z-fixed);
         transition: .5s
     }
@@ -84,15 +88,19 @@
 .nav_logo, .nav_link{
     display: grid;
     grid-template-columns: max-content max-content;
-    align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem;
+    text-decoration: none;
 }
-.nav_logo{margin-bottom: 2rem}
+.nav_logo{margin-bottom: 2rem; padding: .5rem 0 .5rem .95rem}
+
 .nav_logo-icon{
     font-size: 1.25rem;
     color: var(--white-color)
 }
 .nav_logo-name{
-    color: var(--white-color);
+    color: var(--first-color-light);
     font-weight: 700
 }
 .nav_link{
@@ -116,8 +124,8 @@
 .height-100{height:100vh}
 @media screen and (min-width: 768px){
     body{
-        margin: calc(var(--header-height) + 1rem) 0 0 0;
-        padding-left: calc(var(--nav-width) + 2rem)
+        margin: calc(var(--header-height)) 0 0 0;
+        padding-left: calc(var(--nav-width))
     }
     .header{
         height: calc(var(--header-height) + 1rem);
@@ -128,18 +136,14 @@
     .l-navbar{left: 0;padding: 1rem 1rem 0 0}
     .show{width: calc(var(--nav-width) + 156px)
     }
-    .body-pd{padding-left: calc(var(--nav-width) + 188px)
+    .body-pd{padding-left: calc(var(--nav-width) + 160px)
     }
 }
 .main-block{
-    margin-left: 80px;
-    margin-top: 20px;
-    margin-right: 10px;
-    left:80px;
-    top: 10px;
+    padding-top: var(--header-height);
+    padding-left: 10px;
 }
 .secondary-block{
-    background: #202020;
     display: flex;
     flex-direction: row;
     border-radius: 25px;
@@ -175,6 +179,7 @@
     margin: 5px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 .wallet{
@@ -182,6 +187,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.wallet span{
+    display: flex;
+    align-items: center;
+}
+.wallet span .bx-cog{
+    font-size: 1.5rem;
+    color: var(--first-color)
 }
 .transactions{
     width: 30vw;
@@ -208,3 +221,84 @@
     border-radius: 10px;
     padding: 2%;
 }
+
+.slogan{
+        left: 0;
+        right: 0;
+        margin-top: 60%;
+        margin-left: 40%;
+        min-width: 30vw;
+        min-height: 30vh;
+        max-width: 40%;
+        color: #fff;
+    }
+    .start{
+        min-width: 25%;
+        font-size: 124px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-left: 15px;
+    }
+    .nav_new{
+        text-decoration: none;
+        font-size: 1.5em;
+    }
+    .center-sm{
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .account{
+        min-width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .bxs-user-circle{
+        font-size: 12rem;
+        color: var(--first-color);
+    }
+
+    .filter-form{
+        display: flex;
+        min-width: 70%;
+        align-items: center;
+        font-size: 1.1rem;
+    }
+    .width-100{
+        display: flex;
+        min-height: 4vh;
+        min-width: 100%;
+        background: var(--first-color);
+        color: #D9D9D9;
+        border-radius: 10px;
+        padding: .2%;
+    }
+    .filter-form span{
+        margin: 1%;
+    }
+    .filter-form span input{border-radius: 10px; padding: 1% 3% 1% 3%}
+    #filter_by{
+        margin: 1% ;
+    }
+    .filter{
+        min-width: 100%;
+        display: flex;
+    }
+    .right-button{
+        display: flex;
+        color: #D9D9D9;
+        min-width: 29%;
+        flex-direction: row-reverse;
+    }
+    .btn.refresh-btn{
+        border: 2px solid var(--white-color);
+        border-radius: 15px;
+        color: #D9D9D9;
+        margin: 1%;
+    }
+    .btn.refresh-btn:hover{
+        background: var(--white-color);
+    }

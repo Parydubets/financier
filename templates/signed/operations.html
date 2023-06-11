@@ -1,0 +1,73 @@
+{% extends "layoutt.html" %}
+{% block content %}
+        <div class="main-block">
+            <div class="secondary-block">
+                <div class="wallets">
+                    <div class="wallet">
+                        <h2>List of your transactions</h2>
+
+                        <form name="Filter" class="width-100">
+                            <div class="filter-form">
+                                <label id="filter_by">Filter by date</label>
+                                <span>
+                                    {{ form.date_from.label }}
+                                    {{ form.date_from }}
+                                </span>
+                                <span>
+                                    {{ form.date_to.label }}
+                                    {{ form.date_to }}
+                                </span>
+                                <span>
+                                    <label id="filter_by">Filter by category</label>
+                                    {{ form.category }}
+                                </span><span>
+                                    <label id="filter_by">Filter by type</label>
+                                    {{ form.type }}
+                                </span>
+                            </div>
+
+                            <div class="right-button">
+                                {{ form.refresh(class_="btn refresh-btn") }}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="wallet">
+                        <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Type</th>
+      <th scope="col">Category</th>
+      <th scope="col">Time</th>
+      <th scope="col">Sum</th>
+      <th scope="col">Comment</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% set i=0 %}
+  {% for item in operations %}
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+      <td style="
+            {% if item.type == "outcome" %}
+                {{ 'color:red;' }}
+            {% else %}
+                {{ 'color:green' }}
+            {% endif %}
+              ">{{ item.type }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.time }}</td>
+      <td>{{ item.sum }}</td>
+      <td>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

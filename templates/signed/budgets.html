@@ -1,0 +1,63 @@
+{% extends "layoutt.html" %}
+{% block content %}
+        <div class="main-block">
+           <div class="secondary-block">
+                <div class="wallets">
+                    <div class="wallet">
+                        <h1 style="border-bottom: 3px solid #D1C44E;">Available funds</h1>
+                    </div>
+                    {% for item in items %}
+
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        {{ item.name }}</span>
+                        <span><h3>{{ item.balance }} UAH</h3><h3>&nbsp&nbsp</h3></span>
+                    </div><div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Mono</span>
+                        <span><h3>22375 UAH</h3><h3>&nbsp&nbsp</h3></span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+           <div class="secondary-block">
+                <div class="wallets">
+                    <div class="wallet">
+                        <h1 style="border-bottom: 3px solid #D1C44E;">Change from month begin</h1>
+                    </div>
+                    {% for item in items %}
+
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        {{ item.name }}</span>
+                        <span><h3 {% if item.balance>0 %}style="color:green;"{% endif %}>+{{ item.balance }} UAH</h3><h3>&nbsp&nbsp</h3></span>
+                    </div><div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Mono</span>
+                        <span><h3 {% if item.balance>0 %}style="color:green;"{% endif %}>-2375 UAH</h3><h3>&nbsp&nbsp</h3></span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+           <div class="secondary-block">
+                <div class="wallets">
+                    <div class="wallet">
+                        <h1 style="border-bottom: 3px solid #D1C44E;">Set limits</h1>
+                    </div>
+                    {% for item in items %}
+
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        {{ item.name }}</span>
+                        <span><h3>{{ item.balance }} UAH</h3><h3>&nbsp&nbsp</h3><a href="#"><i class='bx bx-cog' ></i></a></span>
+                    </div><div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Mono</span>
+                        <span><h3>4000 UAH</h3><h3>&nbsp&nbsp</h3><a href="#"><i class='bx bx-cog' ></i></a></span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

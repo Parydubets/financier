@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+{% block content %}
+    <body >
+
+
+        <div class="logoBar">
+            <div><img class="Logo" src="./static/Name1.png"></div>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="./static/Logo.png" alt="">
+                        <span class="nav-item">Financier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Budgets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Operations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#new-operation-popup">
+                        <i class="fas fa-solid fa-plus new-operation"></i>
+                        <span class="nav-item">New operation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="navbar">
+            <div></div>
+            <a href="#"><i class="fa-sharp fa-solid fa-house"></i><br>Home</a>
+            <a href="#"><i class="fas fa-chart-bar"></i><br>Operations</a>
+            <a href="#" class="new" id="new"><i class="fa-solid fa-plus"></i>New</a>
+            <a href="#"><i class="fas fa-wallet"></i><br>Budgets</a>
+            <a href="#"><i class="fa-solid fa-user"></i><br>Account</a>
+            <div></div>
+        </div>
+        <div class="main-block">
+        <div class="secondary-block">
+                <div class="wallets">
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Privat Bank wallet</span>
+                        <h3>1235 UAH</h3>
+                    </div>
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Pumb</span>
+                        <h3>4576 UAH</h3>
+                    </div><div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Mono</span>
+                        <h3>22375 UAH</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="secondary-block">
+                <div class="pie-chart"><canvas id="myChart"></canvas>
+                    </div>
+                        <div class="chart-details">
+                        {% for i in range(0, data|length) %}
+                            <h3><div style="background: {{ backgroundColor[i] }}; width: 12px; height: 6px;"></div> is item {{ i }}</h3>
+                        {% endfor %}
+                    </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    let a = '{{ surname }}';
+                    console.log(a);
+                     const ctx = document.getElementById('myChart');
+
+                  new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                      datasets: [{
+                        label: 'Spent ',
+                        data: {{ data }},
+                          backgroundColor: {{ backgroundColor | tojson }},
+                        borderWidth: 1
+                      }]
+                    },
+
+                  });
+
+                </script>
+                </div>
+            <div class="secondary-block">
+
+            </div>
+            <div class="secondary-block">
+
+            </div>
+
+            <div id="new-operation-popup" class="modal">
+                <div class="content">
+                    <h2 style="color: #060520; text-align: center">Add new operation </h2>
+                    <div id = "data-boxes" class="data-boxes">
+                            <div class="data-box">
+                                <form class="edit-form" name="Create transaction" method="post" novalidate>
+                                    {{ form.hidden_tag() }}
+                                    {{ form.category.label }}
+                                    {{ form.category(class_="form-control")}}
+                                </form>
+                            </div>
+                        <div id="wallet-popup"  class="old-class">dfvsdfvds</div>
+                         <script>
+                            $ = function(id) {
+                              return document.getElementById(id);
+                            }
+
+                            var show = function(id) {
+                                $(id).style.display ='block';
+                            }
+                            var hide = function(id) {
+                                $(id).style.display ='none';
+                            }
+                        </script>
+                            <div class="data-box">
+                                <div class="test" id="test" onclick="myFunction()">
+
+
+dfsdfsg
+
+                            </div>
+                            </div>
+                            <div class="data-box">
+                                <form class="edit-form" name="Create transaction" method="post" novalidate>
+                                    {{ form.hidden_tag() }}
+                                    {{ form.category.label(class_="form-control") }}
+                                    {{ form.category}}
+                                </form>
+                            </div>
+                    </div>
+            <a href="#" class="box-close">
+                &times;
+            </a>
+            </div>
+
+            <div style="min-height: 30px;"></div>
+</div>
+    </body>
+{% endblock %}

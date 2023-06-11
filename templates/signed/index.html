@@ -1,0 +1,108 @@
+{% extends "layoutt.html" %}
+{% block content %}
+        <div class="main-block">
+            <div class="secondary-block">
+                <div class="wallets">
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Privat Bank wallet</span>
+                        <h3>1235 UAH</h3>
+                    </div>
+                    <div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Pumb</span>
+                        <h3>4576 UAH</h3>
+                    </div><div class="wallet">
+                        <span><i class="fa-sharp fa-solid fa-money-bill"></i>
+                        Mono</span>
+                        <h3>22375 UAH</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="secondary-block">
+                <div class="pie-chart"><canvas id="myChart"></canvas>
+                    </div>
+                        <div class="chart-details">
+                        {% for i in range(0, data|length) %}
+                            <h3><div style="background: {{ backgroundColor[i] }}; width: 12px; height: 6px;"></div> is item {{ i }}</h3>
+                        {% endfor %}
+                    </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    let a = '{{ surname }}';
+                    console.log(a);
+                     const ctx = document.getElementById('myChart');
+
+                  new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                      datasets: [{
+                        label: 'Spent ',
+                        data: {{ data }},
+                          backgroundColor: {{ backgroundColor | tojson }},
+                        borderWidth: 1
+                      }]
+                    },
+                      options:{
+                          responsive: true
+                      }
+                  });
+
+                </script>
+                </div>
+            <div class="secondary-block">
+
+            </div>
+            <div class="secondary-block">
+
+            </div>
+
+            <div id="new-operation-popup" class="modal">
+                <div class="content">
+                    <h2 style="color: #060520; text-align: center">Add new operation </h2>
+                    <div id = "data-boxes" class="data-boxes">
+                            <div class="data-box">
+                                <form class="edit-form" name="Create transaction" method="post" novalidate>
+                                    {{ form.hidden_tag() }}
+                                    {{ form.category.label }}
+                                    {{ form.category(class_="form-control")}}
+                                </form>
+                            </div>
+                        <div id="wallet-popup"  class="old-class">dfvsdfvds</div>
+                         <script>
+                            $ = function(id) {
+                              return document.getElementById(id);
+                            }
+
+                            var show = function(id) {
+                                $(id).style.display ='block';
+                            }
+                            var hide = function(id) {
+                                $(id).style.display ='none';
+                            }
+                        </script>
+                            <div class="data-box">
+                                <div class="test" id="test" onclick="myFunction()">
+
+
+dfsdfsg
+
+                            </div>
+                            </div>
+                            <div class="data-box">
+                                <form class="edit-form" name="Create transaction" method="post" novalidate>
+                                    {{ form.hidden_tag() }}
+                                    {{ form.category.label(class_="form-control") }}
+                                    {{ form.category}}
+                                </form>
+                            </div>
+                    </div>
+            <a href="#" class="box-close">
+                &times;
+            </a>
+            </div>
+        <h4>Main Components</h4>
+    </div>
+        </div>
+
+{% endblock %}
